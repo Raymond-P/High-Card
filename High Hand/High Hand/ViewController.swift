@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         game.dealHands()
         updateCardsUI()
         
+        
         betStepperBtn.isEnabled = true
         betStepperBtn.minimumValue = 1.0
         betStepperBtn.maximumValue = Double(game.Cash)
@@ -42,6 +43,7 @@ class ViewController: UIViewController {
         initialBet.isEnabled = true
         comScore.text = "0"
         playerScore.text = "0"
+        game.tradesLeft = 3
     }
     
 //    @IBAction func drawBtn() {
@@ -114,6 +116,7 @@ class ViewController: UIViewController {
             drawButton.isEnabled = false
         }
         finalBet.isEnabled = false
+        disableTradeButtons()
     
     }
     
@@ -171,8 +174,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         betStepperBtn.isEnabled = false
-//        disableTradeButtons()
-        
+        disableTradeButtons()
+        finalBet.isEnabled = false
+        initialBet.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
